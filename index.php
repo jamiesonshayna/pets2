@@ -61,5 +61,26 @@ $f3->route('GET /@item', function($f3, $params) {
     }
 });
 
+// route to our first page of our order form
+// define another route called order that displays a form
+$f3->route('GET /order', function() {
+    $view = new Template();
+    echo $view->render('views/form1.html');
+});
+
+// route to our second page of our order form
+// define another route called order that displays a form
+$f3->route('POST /order2', function() {
+    $view = new Template();
+    echo $view->render('views/form2.html');
+});
+
+// route to our results page of our order form
+// define another route called order that displays a form
+$f3->route('POST /results', function() {
+    $view = new Template();
+    echo $view->render('views/results.html');
+});
+
 // fun Fat-Free
 $f3->run();
