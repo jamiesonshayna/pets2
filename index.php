@@ -7,7 +7,7 @@
  */
 
 // start a session - ONLY ever need to put this in our controller (all other pages get by transference)
-//session_start();
+session_start();
 
 
 // Turn on error reporting
@@ -71,6 +71,7 @@ $f3->route('GET /order', function() {
 // route to our second page of our order form
 // define another route called order that displays a form
 $f3->route('POST /order2', function() {
+    $_SESSION['animal'] = $_POST['animal'];
     $view = new Template();
     echo $view->render('views/form2.html');
 });
@@ -78,6 +79,7 @@ $f3->route('POST /order2', function() {
 // route to our results page of our order form
 // define another route called order that displays a form
 $f3->route('POST /results', function() {
+    $_SESSION['color'] = $_POST['color'];
     $view = new Template();
     echo $view->render('views/results.html');
 });
