@@ -34,5 +34,32 @@ $f3->route('GET /', function() {
    // echo $view->render('views/home.html');
 });
 
+
+//define a route accepts animal type parameter
+$f3->route('GET /@item', function($f3, $params) {
+    $item = $params['item'];
+    //use a switch to reroute user OR give them an informed error
+    switch ($item){
+        case 'chicken':
+            echo "<p>Cluck!</p>";
+            break;
+        case 'dog':
+            echo "<p>Woof!</p>";
+            break;
+        case 'cat':
+            echo "<p>Meow!</p>";
+            break;
+        case 'Goat':
+            echo "<p>WHOAAAAAAAAA</p>";
+            break;
+        case 'Lion':
+            echo "<p>Roar</p>";
+            break;
+        default:
+            //no route to send them to, give error
+            $f3->error(404);
+    }
+});
+
 // fun Fat-Free
 $f3->run();
